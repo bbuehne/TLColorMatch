@@ -5,8 +5,8 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 from firebase_admin import db
 
-from tlcolor import RGB
-
+from colormap.colors import rgb2hex
+from colormap.colors import hex2rgb
 
 # Firebase
 def connect_db():
@@ -60,9 +60,7 @@ def color_samples():
                     doc_ref = fdb.collection('samples').document(name)
                     doc_ref.set({
                         'name' : name,
-                        'r' : int(rgb[0]),
-                        'g' : int(rgb[1]),
-                        'b' : int(rgb[2])
+                        'hex_color' : rgb2hex(int(rgb[0]),int(rgb[1]),int(rgb[2]))
                     })
                     return redirect(url_for('color_samples'))
 
