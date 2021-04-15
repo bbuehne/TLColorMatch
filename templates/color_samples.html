@@ -1,7 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %}Color Samples{% endblock %}</h1>
 
-    <
+    <h1>{% block title %}Color Samples {% endblock %}</h1>
+
+    <form method="post" action="{{ url_for('color_samples') }}">
+    <div class="form-group">
+        <label for="title">Name</label>
+        <input type="text" name="title"
+               placeholder="Sample name" class="form-control"
+               value="{{ request.form['title'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="sensordata">Sensor Data</label>
+        <textarea name="sensordata" placeholder="Sensor data"
+                  class="form-control">{{ request.form['sensordata'] }}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+ <hr>
+ {% for sample in samples %}
+    <p>{{ sample['name']}} {{ sample['r']}},{{sample['g']}},{{sample['b'] }}</p>
+ {% endfor %}
+
 {% endblock %}
