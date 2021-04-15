@@ -21,6 +21,20 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
+<hr>
+{% for sample in distance_data[1] %}
+    <div class="container">
+        <div class="row flex-nowrap" style="border-style: solid; border-color: white;">
+             <div class="col-sm-4">
+                 <p>{{ sample[1] }}</p>
+                 <p>{{ "{0:0.2f}".format(sample[0]*100) }}%</p>
+             </div>
+            <div class="col-sm-4" style="background-color: {{ sample[2] }}"><p> </p></div>
+            <div class="col-sm-4" style="background-color: {{ distance_data[0][1] }}"><p> </p></div>
+        </div>
+    </div>
+{% endfor %}
+
 
 
 {% endblock %}

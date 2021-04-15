@@ -24,7 +24,16 @@
 
  <hr>
  {% for sample in samples %}
-    <p>{{ sample['name']}} {{ sample['r']}},{{sample['g']}},{{sample['b'] }}</p>
+     <div class="container">
+         <div class="row" style="border-style: solid; border-color: white; background-color: {{ sample['hex_color'] }};">
+             <div class="col" style="background-color: white;">
+                 <p style="text: right;">{{ sample['name']}}
+                     <br>{{ sample['rgb'][0]}},{{sample['rgb'][1]}},{{sample['rgb'][2] }}
+                 </p>
+             </div>
+             <div class="col"></div>
+         </div>
+     </div>
  {% endfor %}
 
 {% endblock %}
