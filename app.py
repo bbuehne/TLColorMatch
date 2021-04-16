@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request, url_for, flash, redirect
-from werkzeug.exceptions import abort
+
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-from firebase_admin import db
 
 from colormap.colors import rgb2hex
 from colormap.colors import hex2rgb
